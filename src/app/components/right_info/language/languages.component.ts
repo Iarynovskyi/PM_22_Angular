@@ -1,11 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {LanguagesService} from '../../services/languages.service';
+import {LanguagesService} from '../../../services/languages.service';
+import {ProgressCircleComponent} from '../progress_circle/progress_circle.component';
+import {NgApexchartsModule} from 'ng-apexcharts';
 
 @Component({
   selector: 'app-languages',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ProgressCircleComponent, NgApexchartsModule],
   templateUrl: './languages.component.html'
 })
 export class LanguagesComponent implements OnInit {

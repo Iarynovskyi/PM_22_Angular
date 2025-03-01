@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {JobExperienceService} from '../../services/experience.service';
+import {JobExperienceService} from '../../../services/experience.service';
 
 @Component({
   selector: 'app-job-experience-item',

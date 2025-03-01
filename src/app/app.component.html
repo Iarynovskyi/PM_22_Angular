@@ -1,8 +1,16 @@
-<div class="container">
-  <app-base></app-base>
+
   <app-header></app-header>
-  <app-left-section></app-left-section>
-  <app-right-section></app-right-section>
-</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <app-base></app-base>
+
+        <app-left-section></app-left-section>
+      </div>
+      <div class="col-md-4">
+        <app-right-section></app-right-section>
+      </div>
+    </div>
+  </div>
 
 <router-outlet />

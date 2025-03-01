@@ -288,9 +288,59 @@ header {
   text-align: left;
   outline: none;
 }
-.content{
+//.content{
+//  max-height: 0;
+//  overflow: hidden;
+//  transition: max-height 0.2s ease-out;
+//}
+
+/* Стилі для кнопок */
+//.collapsible {
+//  background-color: #f1f1f1;
+//  color: #444;
+//  border: none;
+//  text-align: left;
+//  cursor: pointer;
+//  padding: 10px 15px;
+//  width: 90%;
+//  box-sizing: border-box;
+//  font-size: 16px;
+//  border-radius: 5px;
+//  margin: 5px 0;
+//}
+
+
+
+/* Стиль для контенту, який буде розгортатись/згортатись */
+div > app-skills,
+div > app-hobbies,
+div > app-languages,
+div > app-references {
+  padding: 10px;
+  background-color: #f9f9f9;
+  display: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  opacity: 0;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.2s ease-out;
+  transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+
+/* Показуємо контент, коли він відкритий */
+div.open > app-skills,
+div.open > app-hobbies,
+div.open > app-languages,
+div.open > app-references {
+  display: block;
+  opacity: 1;
+  max-height: 1000px; /* Максимальна висота для плавного ефекту */
+  transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+
+
+.chart-container {
+  display: flex;
+  flex-direction: row !important;
 }
 

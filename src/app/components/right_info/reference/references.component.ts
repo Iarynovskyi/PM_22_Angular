@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {ReferencesService} from '../../services/references.service';
+import {ReferencesService} from '../../../services/references.service';
 
 @Component({
   selector: 'app-references',

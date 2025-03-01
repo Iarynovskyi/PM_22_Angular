@@ -1,0 +1,5 @@
+<div class="chart-container">
+<div class="d-flex flex-wrap justify-content-between gap-3">
+  <app-progress-circle *ngFor="let language of languagesItems" [progress]="language.level" [label]="language.name"></app-progress-circle>
+</div>
+</div>

@@ -1,0 +1,13 @@
+<div *ngFor="let item of contactItem">
+  <div class="contact-container">
+    <div class="contact-item" data-url="tel:+380508485120">
+      <i class="bi bi-telephone-fill"> </i>{{item.telephone}}
+    </div>
+    <div class="contact-item" data-url="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+      <i class="bi bi-globe"></i> {{item.site}}
+    </div>
+    <div class="contact-item full-width" data-url="https://www.google.com/maps?q=769+Prudence+Street,+Lincoln+Park,+MI+48146">
+      <i class="bi bi-geo-alt-fill"></i> {{item.map}}
+    </div>
+  </div>
+</div>
