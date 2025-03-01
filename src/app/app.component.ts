@@ -11,7 +11,7 @@ import {CommonModule} from '@angular/common';
   standalone: true,
   imports: [RouterOutlet, BaseComponent, HeaderComponent, RightSectionComponent, LeftSectionComponent, CommonModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'Web-prog-angular';
