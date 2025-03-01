@@ -1,0 +1,8 @@
+<div *ngFor="let hobby of hobbiesItem">
+  <div class="d-flex align-items-center mb-3">
+    <p class="skill-name">{{ hobby.name }}</p>
+    <div class="progress flex-grow-1">
+      <div class="progress-bar" role="progressbar" [style.width]="hobby.level"></div>
+    </div>
+  </div>
+</div>

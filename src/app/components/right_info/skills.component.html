@@ -1,0 +1,8 @@
+<div *ngFor="let skill of skillsItems">
+  <div class="d-flex align-items-center mb-3">
+    <p class="skill-name">{{ skill.name }}</p>
+    <div class="progress flex-grow-1">
+      <div class="progress-bar" role="progressbar" [style.width]="skill.level"></div>
+    </div>
+  </div>
+</div>
