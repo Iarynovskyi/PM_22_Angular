@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {ReferencesService} from '../../../services/references.service';
+import {Service_frontend} from '../../service/service_frontend';
+import {Reference} from '../../service/dto_interfaces';
 
 @Component({
   selector: 'app-references',
@@ -9,11 +10,16 @@ import {ReferencesService} from '../../../services/references.service';
   templateUrl: './references.component.html'
 })
 export class ReferencesComponent implements OnInit {
-  referencesItem: any[] = [];
+  referencesItem: Reference[] = [];
 
-  constructor(private referencesServer: ReferencesService) {}
+  constructor(private referencesServer: Service_frontend) {}
 
-  ngOnInit() {
-    this.referencesItem = this.referencesServer.getReferences();
+  ngOnInit(): void {
+    this.referencesServer.getReference().subscribe(
+      (data: Reference[]) =>
+      {
+        this.referencesItem = data;
+      }
+    );
   }
 }

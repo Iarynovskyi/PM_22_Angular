@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {HobbiesService} from '../../../services/hobbies.service';
+import {Service_frontend} from '../../service/service_frontend';
+import {Hobie} from '../../service/dto_interfaces';
+import {map} from 'rxjs';
 
 @Component({
   selector: 'app-hobbies',
@@ -9,33 +11,40 @@ import {HobbiesService} from '../../../services/hobbies.service';
   templateUrl: './hobbies.component.html'
 })
 export class HobbiesComponent implements OnInit {
-  hobbiesItem: any[] = [];
+  hobbiesItem: Hobie[] = [];
 
-  constructor(private hobbiesService: HobbiesService) {}
+  constructor(private hobbiesService: Service_frontend) {}
 
-  ngOnInit() {
-    this.hobbiesItem = this.hobbiesService.getHobbies().map(hobbie => ({
-      ...hobbie,
-      animatedLevel: 0,
-    }));
-
-    this.animateProgress();
+  ngOnInit(): void {
+    this.hobbiesService.getHobbies()
+      .pipe(
+        map((data: Hobie[]) => data.map(hobbie => ({
+          ...hobbie,
+          animatedLevel: 0,
+        })))
+      )
+      .subscribe(updatedHobbies => {
+        this.hobbiesItem = updatedHobbies;
+        this.animateProgress();
+      });
   }
 
-
   animateProgress() {
-    this.hobbiesItem.forEach((hobbie, index) => {
+    this.hobbiesItem.forEach((hobie, index) => {
       setTimeout(() => {
         let progress = 0;
+        const level = Number(hobie.level);
         const interval = setInterval(() => {
-          if (progress >= hobbie.level) {
+          if (progress >= level) {
             clearInterval(interval);
           } else {
             progress += 2;
-            hobbie.animatedLevel = progress;
+            hobie.animatedLevel = progress;
           }
-        });
+        }, 30);
       }, index * 100);
     });
   }
+
+
 }

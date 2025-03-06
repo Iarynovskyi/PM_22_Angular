@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {ContactService} from '../../../services/contact.service';
+import {Service_frontend} from '../../service/service_frontend';
+import {Contact} from '../../service/dto_interfaces';
 
 @Component({
   selector: 'app-contact',
@@ -9,11 +10,16 @@ import {ContactService} from '../../../services/contact.service';
   templateUrl: './contact.component.html'
 })
 export class ContactComponent implements OnInit {
-  contactItem: any[] = [];
+  contactItem: Contact[] = [];
 
-  constructor(private contactServer: ContactService) {}
+  constructor(private contactServer: Service_frontend) {}
 
-  ngOnInit() {
-    this.contactItem = this.contactServer.getContactItems();
+  ngOnInit(): void {
+    this.contactServer.getContact().subscribe(
+      (data: Contact[]) =>
+      {
+        this.contactItem = data;
+      }
+    );
   }
 }

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {JobExperienceService} from '../../../services/experience.service';
+import {Service_frontend} from '../../service/service_frontend';
+import {Experience} from '../../service/dto_interfaces';
 
 @Component({
   selector: 'app-job-experience-item',
@@ -9,11 +10,16 @@ import {JobExperienceService} from '../../../services/experience.service';
   templateUrl: './job_experience_item.component.html'
 })
 export class JobExperienceItemComponent implements OnInit {
-  jobExperienceItem: any[] = [];
+  jobExperienceItem: Experience[] = [];
 
-  constructor(private jobExperienceService: JobExperienceService) {}
+  constructor(private jobExperienceService: Service_frontend) {}
 
-  ngOnInit() {
-    this.jobExperienceItem = this.jobExperienceService.getJobExperience();
+  ngOnInit(): void {
+    this.jobExperienceService.getExperience().subscribe(
+      (data: Experience[]) =>
+      {
+        this.jobExperienceItem = data;
+      }
+    );
   }
 }

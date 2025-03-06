@@ -5,7 +5,6 @@ import {HobbiesComponent} from './hobbie/hobbies.component';
 import {LanguagesComponent} from './language/languages.component';
 import {ReferencesComponent} from './reference/references.component';
 import {CommonModule} from '@angular/common';
-import {ProgressCircleComponent} from './progress_circle/progress_circle.component';
 
 @Component({
   selector: 'app-right-section',
@@ -15,8 +14,7 @@ import {ProgressCircleComponent} from './progress_circle/progress_circle.compone
     HobbiesComponent,
     LanguagesComponent,
     ReferencesComponent,
-    CommonModule,
-    ProgressCircleComponent
+    CommonModule
   ],
   templateUrl: './right_section.component.html'
 

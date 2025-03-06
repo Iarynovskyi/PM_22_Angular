@@ -6,12 +6,12 @@ import {RightSectionComponent} from './components/right_info/right_section.compo
 import {LeftSectionComponent} from './components/left_info/left_section.component';
 import {CommonModule} from '@angular/common';
 import {NgApexchartsModule} from 'ng-apexcharts';
-import {ContactComponent} from './components/left_info/contact/contact.component';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, BaseComponent, HeaderComponent, RightSectionComponent, LeftSectionComponent, CommonModule, NgApexchartsModule, ContactComponent],
+  imports: [RouterOutlet, BaseComponent, HeaderComponent, RightSectionComponent, LeftSectionComponent, CommonModule, NgApexchartsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

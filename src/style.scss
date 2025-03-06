@@ -6,6 +6,7 @@ $highlight-color: #8ab2de;
 $gray-color: gray;
 $text-muted-color: #6c757d;
 $font-stack: 'Arial', sans-serif;
+@import '../node_modules/ngx-toastr/toastr.css';
 
 span{
   color: $accent-color;
@@ -253,7 +254,7 @@ header {
 // Adaptation
 
 .header-text {
-  font-size: calc(2.5rem + 1vw); /* Адаптивний розмір тексту */
+  font-size: calc(2.5rem + 1vw);
 }
 .subheader-text {
   font-size: calc(1.5rem + 0.5vw);
@@ -288,30 +289,8 @@ header {
   text-align: left;
   outline: none;
 }
-//.content{
-//  max-height: 0;
-//  overflow: hidden;
-//  transition: max-height 0.2s ease-out;
-//}
-
-/* Стилі для кнопок */
-//.collapsible {
-//  background-color: #f1f1f1;
-//  color: #444;
-//  border: none;
-//  text-align: left;
-//  cursor: pointer;
-//  padding: 10px 15px;
-//  width: 90%;
-//  box-sizing: border-box;
-//  font-size: 16px;
-//  border-radius: 5px;
-//  margin: 5px 0;
-//}
 
 
-
-/* Стиль для контенту, який буде розгортатись/згортатись */
 div > app-skills,
 div > app-hobbies,
 div > app-languages,
@@ -334,7 +313,7 @@ div.open > app-languages,
 div.open > app-references {
   display: block;
   opacity: 1;
-  max-height: 1000px; /* Максимальна висота для плавного ефекту */
+  max-height: 1000px;
   transition: opacity 0.3s ease, max-height 0.3s ease;
 }
 

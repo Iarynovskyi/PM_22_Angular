@@ -1,7 +1,8 @@
 // education-item.component.ts
 import { Component, OnInit } from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {EducationService} from '../../../services/education.service';
+import {Service_frontend} from '../../service/service_frontend';
+import {Education} from '../../service/dto_interfaces';
 
 @Component({
   selector: 'app-education-item',
@@ -11,11 +12,15 @@ import {EducationService} from '../../../services/education.service';
 })
 
 export class EducationItemComponent implements OnInit {
-  educationItems: any[] = [];
+  educationItems: Education[] = [];
 
-  constructor(private educationService: EducationService) {}
+  constructor(private educationService: Service_frontend) {}
 
-  ngOnInit() {
-    this.educationItems = this.educationService.getEducationItems();
-  }
+  ngOnInit(): void {
+    this.educationService.getEducation().subscribe(
+      (data: Education[]) =>
+      {
+        this.educationItems = data;
+      }
+    );  }
 }

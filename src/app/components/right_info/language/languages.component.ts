@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {LanguagesService} from '../../../services/languages.service';
+import {Service_frontend} from '../../service/service_frontend';
 import {ProgressCircleComponent} from '../progress_circle/progress_circle.component';
 import {NgApexchartsModule} from 'ng-apexcharts';
+import {Language} from '../../service/dto_interfaces';
 
 @Component({
   selector: 'app-languages',
@@ -10,12 +11,18 @@ import {NgApexchartsModule} from 'ng-apexcharts';
   imports: [CommonModule, ProgressCircleComponent, NgApexchartsModule],
   templateUrl: './languages.component.html'
 })
+
 export class LanguagesComponent implements OnInit {
-  languagesItems: any[] = [];
+  languagesItems: Language[] = [];
 
-  constructor(private languagesService: LanguagesService) {}
+  constructor(private languagesService: Service_frontend) {}
 
-  ngOnInit() {
-    this.languagesItems = this.languagesService.getLanguages();
+  ngOnInit(): void {
+    this.languagesService.getLanguage().subscribe(
+      (data: Language[]) =>
+      {
+        this.languagesItems = data;
+      }
+    );
   }
 }
