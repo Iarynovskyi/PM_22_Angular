@@ -1,4 +1,4 @@
-import { Contact, Skill, Education, Experience, Hobie, Language, Reference} from './dto_interfaces';
+import {Contact, Skill, Education, Experience, Hobie, Language, Reference, Header} from './dto_interfaces';
 
 export const education: Education[] = [
   {
@@ -84,3 +84,8 @@ export const skill: Skill[] = [
   { name: 'Microsoft Word', level: '85', animatedLevel: 0  },
   { name: 'HTML5/CSS3', level: '80', animatedLevel: 0  },
 ];
+
+
+export const header: Header[] = [
+  { name: 'RALPH S. GARCIA', position: 'Graphic & Web Designer ', main_text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', text: '"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."'}
+]

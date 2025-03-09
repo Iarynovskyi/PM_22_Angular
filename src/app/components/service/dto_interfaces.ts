@@ -43,3 +43,10 @@ export interface Reference {
   phone: string;
   email: string;
 }
+
+export interface Header {
+  name: string;
+  position: string;
+  main_text: string;
+  text: string;
+}

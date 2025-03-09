@@ -36,7 +36,7 @@ export class ProgressCircleComponent{
       chart: {
         height: 190,
         width: 120,
-        type: "radialBar"
+        type: "radialBar",
       },
       plotOptions: {
         radialBar: {

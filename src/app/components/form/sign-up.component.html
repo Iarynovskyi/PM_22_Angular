@@ -1,0 +1,38 @@
+<section class="registration">
+  <div class="form">
+    <h2>Registration</h2>
+    <form [formGroup]="SignUpForm" (ngSubmit)="onSubmit()">
+      <div class="input-field">
+        <label>Username:</label>
+        <input type="text" formControlName="username" [class.input-error]="SignUpForm.get('username')?.invalid && SignUpForm.get('username')?.touched">
+        <div *ngIf="SignUpForm.get('username')?.invalid && SignUpForm.get('username')?.touched">
+          <span *ngIf="SignUpForm.get('username')?.errors?.['required']">Required field</span>
+          <span *ngIf="SignUpForm.get('username')?.errors?.['invalidUsername']">The name contains prohibited characters</span>
+        </div>
+      </div>
+
+      <div class="input-field">
+        <label>Email:</label>
+        <input type="email" formControlName="email" [class.input-error]="SignUpForm.get('email')?.invalid && SignUpForm.get('email')?.touched">
+        <div *ngIf="SignUpForm.get('email')?.invalid && SignUpForm.get('email')?.touched">
+          <span *ngIf="SignUpForm.get('email')?.errors?.['required']">Required field</span>
+          <span *ngIf="SignUpForm.get('email')?.errors?.['email']">Incorrect email</span>
+        </div>
+      </div>
+
+      <div class="input-field">
+        <label>Password:</label>
+        <input type="password" formControlName="password" [class.input-error]="SignUpForm.get('password')?.invalid && SignUpForm.get('password')?.touched">
+        <div *ngIf="SignUpForm.get('password')?.invalid && SignUpForm.get('password')?.touched">
+          <span *ngIf="SignUpForm.get('password')?.errors?.['required']">Required field</span>
+          <span *ngIf="SignUpForm.get('password')?.errors?.['invalidPassword']">Incorrect password type</span>
+        </div>
+      </div>
+
+      <button type="submit" [disabled]="SignUpForm.invalid">Registration</button>
+    </form>
+  </div>
+
+    <a routerLink="/login">Sign-in</a>
+    <a routerLink="/">Home</a>
+</section>

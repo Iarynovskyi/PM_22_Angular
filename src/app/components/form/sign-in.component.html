@@ -1,0 +1,30 @@
+<section class="registration">
+  <div class="form">
+    <h2>Sign-in</h2>
+    <form [formGroup]="SignInForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label>Email:</label>
+        <input type="email" formControlName="email_or_username">
+      </div>
+      <div *ngIf="SignInForm.get('email_or_username')?.invalid && SignInForm.get('email_or_username')?.touched">
+        <span *ngIf="SignInForm.get('email_or_username')?.errors?.['required']">Required field</span>
+        <span *ngIf="SignInForm.get('email_or_username')?.errors?.['email']">Incorrect email</span>
+      </div>
+
+      <div>
+        <label>Password:</label>
+        <input type="password" formControlName="password">
+      </div>
+      <div *ngIf="SignInForm.get('password')?.invalid && SignInForm.get('password')?.touched">
+        <span *ngIf="SignInForm.get('password')?.errors?.['required']">Required field</span>
+        <span *ngIf="SignInForm.get('password')?.errors?.['invalidPassword']">Incorrect password type</span>
+      </div>
+
+      <button type="submit" [disabled]="SignInForm.invalid">Sign in</button>
+    </form>
+  </div>
+
+
+  <a routerLink="/register">Registration</a>
+  <a routerLink="/">Home</a>
+</section>

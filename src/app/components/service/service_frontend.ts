@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
-import { Skill, Experience, Contact, Reference, Education, Hobie, Language } from './dto_interfaces';
+import {Skill, Experience, Contact, Reference, Education, Hobie, Language, Header} from './dto_interfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -16,9 +16,9 @@ export class Service_frontend {
   private handleError(error: HttpErrorResponse): Observable<never> {
     let errorMessage = 'Unknown error occurred!';
     if (error.error instanceof ErrorEvent) {
-      errorMessage = `Client error: ${error.error.message}`;
+      errorMessage = `Client error: ${error.message}`;
     } else {
-      errorMessage = `Server error ${error.status}: ${error.message}`;
+      errorMessage = `Server error: ${error.message}`;
     }
 
     this.toast_error.error(errorMessage, 'API Error', {
@@ -31,6 +31,12 @@ export class Service_frontend {
     });
 
     return throwError(() => new Error(errorMessage));
+  }
+
+  getHeader(): Observable<Header[]> {
+    return this.http.get<Header[]>(`${this.apiUrl}/header`).pipe(
+      catchError(this.handleError.bind(this))
+    );
   }
 
   getEducation(): Observable<Education[]> {

@@ -1,10 +1,23 @@
 import express, { Request, Response } from "express";
 import cors from "cors";
-import {language, skill, experience, hobie, education, reference, contact} from './app/components/service/data_info.js'
+import {
+  language,
+  skill,
+  experience,
+  hobie,
+  education,
+  reference,
+  contact,
+  header
+} from './app/components/service/data_info.js'
 
 const app = express();
 app.use(cors());
 
+
+app.get("/header", (req: Request, res: Response) => {
+  res.json(header);
+});
 
 app.get("/language", (req: Request, res: Response) => {
   res.json(language);
